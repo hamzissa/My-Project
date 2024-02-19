@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2w1bthqutmru"
+path="res://.godot/imported/gasp2.wav-dc9cc0fb4b912aec20f3b084d6e9807a.sample"
+
+[deps]
+
+source_file="res://assets 2/sounds/gasp2.wav"
+dest_files=["res://.godot/imported/gasp2.wav-dc9cc0fb4b912aec20f3b084d6e9807a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
