@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4003ycps0esu"]
+[gd_scene load_steps=18 format=3 uid="uid://c4003ycps0esu"]
 
 [ext_resource type="Texture2D" uid="uid://d2v3ficu5t70q" path="res://assets 2/spritesheets/grass.png" id="1_oqr8n"]
 [ext_resource type="Texture2D" uid="uid://y0ocm5sykwq3" path="res://assets 2/spritesheets/concrete.png" id="2_o0nh4"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dmncb1l5i1o2p" path="res://assets 2/spritesheets/walls.png" id="4_gvmqe"]
 [ext_resource type="Texture2D" uid="uid://dll8bhi1tgq8s" path="res://assets 2/spritesheets/objects.png" id="5_ikvhs"]
 [ext_resource type="Texture2D" uid="uid://butgif2tv0j3o" path="res://assets 2/spritesheets/playeholder_tiles_64.png" id="6_mkaqf"]
+[ext_resource type="Script" path="res://Player/player.gd" id="7_bj3es"]
+[ext_resource type="Texture2D" uid="uid://ct7xj1l5r2yae" path="res://assets 2/images/soldier1_gun.png" id="8_pgap8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtrpg"]
 texture = ExtResource("1_oqr8n")
@@ -348,7 +350,11 @@ sources/3 = SubResource("TileSetAtlasSource_v8jew")
 sources/4 = SubResource("TileSetAtlasSource_s1dx2")
 sources/5 = SubResource("TileSetAtlasSource_6o2bj")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8vr2"]
+radius = 143.785
+
 [node name="Map" type="Node2D"]
+scale = Vector2(0.488499, 0.428568)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pbt6e")
@@ -390,3 +396,16 @@ layer_5/y_sort_enabled = false
 layer_5/y_sort_origin = 0
 layer_5/z_index = 0
 layer_5/tile_data = PackedInt32Array()
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="TileMap"]
+script = ExtResource("7_bj3es")
+
+[node name="Soldier1Gun" type="Sprite2D" parent="TileMap/CharacterBody2D"]
+position = Vector2(755, 625.25)
+scale = Vector2(4.88462, 4.24419)
+texture = ExtResource("8_pgap8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/CharacterBody2D"]
+position = Vector2(746, 642.25)
+shape = SubResource("CircleShape2D_x8vr2")
+one_way_collision_margin = 0.0
