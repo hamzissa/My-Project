@@ -400,12 +400,13 @@ layer_5/tile_data = PackedInt32Array()
 [node name="CharacterBody2D" type="CharacterBody2D" parent="TileMap"]
 script = ExtResource("7_bj3es")
 
-[node name="Soldier1Gun" type="Sprite2D" parent="TileMap/CharacterBody2D"]
-position = Vector2(755, 625.25)
-scale = Vector2(4.88462, 4.24419)
-texture = ExtResource("8_pgap8")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/CharacterBody2D"]
-position = Vector2(746, 642.25)
+position = Vector2(769.705, 1229.68)
+scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_x8vr2")
 one_way_collision_margin = 0.0
+
+[node name="Soldier1Gun" type="Sprite2D" parent="TileMap/CharacterBody2D"]
+position = Vector2(788.129, 1222.68)
+scale = Vector2(4.88462, 4.24419)
+texture = ExtResource("8_pgap8")
