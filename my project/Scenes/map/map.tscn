@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4003ycps0esu"]
+[gd_scene load_steps=16 format=3 uid="uid://c4003ycps0esu"]
 
 [ext_resource type="Texture2D" uid="uid://d2v3ficu5t70q" path="res://assets 2/spritesheets/grass.png" id="1_oqr8n"]
 [ext_resource type="Texture2D" uid="uid://y0ocm5sykwq3" path="res://assets 2/spritesheets/concrete.png" id="2_o0nh4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dmncb1l5i1o2p" path="res://assets 2/spritesheets/walls.png" id="4_gvmqe"]
 [ext_resource type="Texture2D" uid="uid://dll8bhi1tgq8s" path="res://assets 2/spritesheets/objects.png" id="5_ikvhs"]
 [ext_resource type="Texture2D" uid="uid://butgif2tv0j3o" path="res://assets 2/spritesheets/playeholder_tiles_64.png" id="6_mkaqf"]
+[ext_resource type="PackedScene" uid="uid://5jcwukxxvkn4" path="res://Scenes/player/player.tscn" id="7_15yd8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtrpg"]
 texture = ExtResource("1_oqr8n")
@@ -390,3 +391,6 @@ layer_5/y_sort_enabled = false
 layer_5/y_sort_origin = 0
 layer_5/z_index = 0
 layer_5/tile_data = PackedInt32Array()
+
+[node name="player" parent="TileMap" instance=ExtResource("7_15yd8")]
+position = Vector2(251, 283)
