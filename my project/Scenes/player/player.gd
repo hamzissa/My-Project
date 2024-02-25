@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name player
 #speed of player and mouse speed
 const speed: float = 130.0
 const mouse_speed = 5
