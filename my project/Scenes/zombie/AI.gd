@@ -37,6 +37,7 @@ func set_state(new_state: int) :
 	
 func _on_player_detection_zone_body_entered(body: Node) -> void:
 	if body.is_in_group("player"): 
+		printerr("engage")
 		set_state(State.ENGAGE)# Replace with function body.
 		player = body	
 
@@ -54,9 +55,9 @@ func _on_patrol_timer_timeout():
 func _physics_process(delta: float) -> void:
 	match current_state:
 		State.PATROL:
-			printerr("1")
+			#printerr("1")
 			if not (patrol_location_reached):	
-				printerr(patrol_location)
+				#printerr(patrol_location)
 				actor.velocity = actor.global_position.direction_to(patrol_location) * 100
 				var collision = actor.move_and_slide()
 				if collision:
