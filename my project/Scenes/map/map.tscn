@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4003ycps0esu"]
+[gd_scene load_steps=18 format=3 uid="uid://c4003ycps0esu"]
 
+[ext_resource type="Script" path="res://Scenes/map/map.gd" id="1_0qnla"]
 [ext_resource type="Texture2D" uid="uid://d2v3ficu5t70q" path="res://assets 2/spritesheets/grass.png" id="1_oqr8n"]
 [ext_resource type="Texture2D" uid="uid://y0ocm5sykwq3" path="res://assets 2/spritesheets/concrete.png" id="2_o0nh4"]
 [ext_resource type="Texture2D" uid="uid://byvdgypgtkox3" path="res://assets 2/spritesheets/floor.png" id="3_8g846"]
@@ -349,6 +350,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(138, 199, 1838, 197, 1826, 567, 2084, 533, 2077, 426, 1956, 417, 1959, 219, 2236, 216, 2232, 627, 1827, 604, 1820, 737, 2213, 737, 2215, 1503, 2355, 1495, 2607, 1491, 2575, 407, 2675, 355, 3179, 339, 3195, 851, 2839, 863, 2847, 979, 3223, 983, 3215, 1071, 2843, 1071, 2851, 1447, 2935, 1435, 2922.85, 1508.05, 3051, 1511, 3039, 1339, 2971, 1331, 2951, 1151, 3239, 1171, 3247, 1483, 3423, 1499, 3423, 1603, 3495, 1683, 3507, 1951, 3363, 1955, 3215, 1955, 3223, 1827, 3371, 1839, 3371, 1695, 3095, 1695, 3099, 1963, 2491, 1947, 2503, 1759, 2355, 1751, 2339, 1955, 2219, 1951, 2039, 1964, 2032, 1775, 1949, 1771, 1956, 1454, 1801, 1458, 1813, 1639, 1039, 1623, 1055, 1919, 1203, 2027, 1067, 2019, 815, 1831, 803, 1763, 219, 1783, 223, 1635, 944, 1635, 948, 1507, 484, 1492, 503, 1137, 351, 1119, 361, 748, 284, 743, 282, 684, 148, 676, 148, 528, 483, 515, 469, 296, 360, 293, 359, 437, 132, 440)])
 
 [node name="Map" type="Node2D"]
+script = ExtResource("1_0qnla")
 
 [node name="TileMap" type="TileMap" parent="." groups=["tilemap"]]
 tile_set = SubResource("TileSet_pbt6e")
@@ -388,10 +390,10 @@ layer_4/tile_data = PackedInt32Array()
 position = Vector2(251, 283)
 
 [node name="zombie" parent="." instance=ExtResource("8_dyws6")]
-position = Vector2(518, 278)
+position = Vector2(536, 264)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." groups=["nav_reigon"]]
-position = Vector2(4, -4)
+position = Vector2(1, 2)
 navigation_polygon = SubResource("NavigationPolygon_wcvdx")
 
 [node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D" groups=["nav_reigon"]]

@@ -12,7 +12,7 @@ var player: player = null
 
 # PATROL STATE 
 var origin: Vector2 = Vector2.ZERO
-var patrol_location: Vector2 = Vector2.ZERO
+var patrol_location: Vector2 = Vector2(600,600)
 var actor: CharacterBody2D = null
 var patrol_location_reached : bool = false
 var actor_velocity: Vector2 = Vector2.ZERO
@@ -32,7 +32,7 @@ func set_state(new_state: int) :
 		patrol_location_reached = true
 		
 	current_state = new_state
-	emit_signal("state_chaged", current_state)
+	emit_signal("state_changed", current_state)
 	
 	
 func _on_player_detection_zone_body_entered(body: Node) -> void:
@@ -42,24 +42,35 @@ func _on_player_detection_zone_body_entered(body: Node) -> void:
 
 
 func _on_patrol_timer_timeout():
-	var patrol_range = 50
-	var random_x = randi_range(-patrol_range, patrol_range) # Replace with function body.
-	var random_y = randi_range(-patrol_range, patrol_range) # Replace with function body.
+	printerr("test")
+	var patrol_range_min = 600
+	var patrol_range_max = 2100
+	var random_x = randi_range(patrol_range_min, patrol_range_max) # Replace with function body.
+	var random_y = randi_range(patrol_range_min, patrol_range_max) # Replace with function body.
 	patrol_location = Vector2(random_x,random_y) + origin
 	patrol_location_reached = false
 	actor_velocity = actor.global_position.direction_to(patrol_location) * 100
 	
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	match current_state:
 		State.PATROL:
-			if not (patrol_location_reached):
+			printerr("1")
+			if not (patrol_location_reached):	
+				printerr(patrol_location)
 				actor.velocity = actor.global_position.direction_to(patrol_location) * 100
-				actor.move_and_slide()
-				patrol_timer.start()
+				var collision = actor.move_and_slide()
+				if collision:
+					# Collision occurred, get a new patrol location
+					_on_patrol_timer_timeout()
+				#patrol_timer.start()
 				if actor.global_position.distance_to(patrol_location) < 5:
+					printerr("3")
 					patrol_location_reached = true
 					actor_velocity = Vector2.ZERO
 					patrol_timer.start()
+			else:
+				_on_patrol_timer_timeout()		
+				patrol_location_reached = false
 				
 func initilize(actor):
 	self.actor = actor	
