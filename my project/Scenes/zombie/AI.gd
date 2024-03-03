@@ -43,7 +43,7 @@ func _on_player_detection_zone_body_entered(body: Node) -> void:
 
 
 func _on_patrol_timer_timeout():
-	printerr("test")
+	#printerr("test")
 	var patrol_range_min = 600
 	var patrol_range_max = 2100
 	var random_x = randi_range(patrol_range_min, patrol_range_max) # Replace with function body.
@@ -65,10 +65,12 @@ func _physics_process(delta: float) -> void:
 					_on_patrol_timer_timeout()
 				#patrol_timer.start()
 				if actor.global_position.distance_to(patrol_location) < 5:
-					printerr("3")
+					#printerr("3")
 					patrol_location_reached = true
 					actor_velocity = Vector2.ZERO
 					patrol_timer.start()
+				if actor.velocity.length_squared() > 0:
+					actor.rotation = actor.velocity.angle()	
 			else:
 				_on_patrol_timer_timeout()		
 				patrol_location_reached = false

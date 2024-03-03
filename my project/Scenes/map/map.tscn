@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4003ycps0esu"]
+[gd_scene load_steps=19 format=3 uid="uid://c4003ycps0esu"]
 
 [ext_resource type="Script" path="res://Scenes/map/map.gd" id="1_0qnla"]
 [ext_resource type="Texture2D" uid="uid://d2v3ficu5t70q" path="res://assets 2/spritesheets/grass.png" id="1_oqr8n"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://butgif2tv0j3o" path="res://assets 2/spritesheets/playeholder_tiles_64.png" id="6_mkaqf"]
 [ext_resource type="PackedScene" uid="uid://5jcwukxxvkn4" path="res://Scenes/player/player.tscn" id="7_15yd8"]
 [ext_resource type="PackedScene" uid="uid://d4mium4bjbfxp" path="res://Scenes/zombie/zombie.tscn" id="8_dyws6"]
+[ext_resource type="Script" path="res://Scenes/bullet_manager/bullet_manager.gd" id="10_305pp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtrpg"]
 texture = ExtResource("1_oqr8n")
@@ -398,5 +399,8 @@ navigation_polygon = SubResource("NavigationPolygon_wcvdx")
 
 [node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D" groups=["nav_reigon"]]
 position = Vector2(20, -4)
-color = Color(1, 1, 1, 0.368627)
+color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(983, 883, 1531, 875, 1535, 1195, 983, 1191)
+
+[node name="bullet_manager" type="Node2D" parent="."]
+script = ExtResource("10_305pp")

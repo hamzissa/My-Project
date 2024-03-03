@@ -1,8 +1,14 @@
 extends CharacterBody2D
+
+
+
 class_name player
 #speed of player and mouse speed
 const speed: float = 130.0
 const mouse_speed = 5
+@export var bullet :PackedScene
+@onready var end_of_gun = $EndOfGun
+signal player_fired_bullet(bullet,position, direction)
 
 #direction mouse is pointing towards
 var mouse_direct
@@ -31,5 +37,21 @@ func get_input() -> void:
 	velocity = input.normalized() * speed
 	#direction of mouse
 	mouse_direct = (get_global_mouse_position() - global_position).angle()
+
+func _unhandled_input(event):
+	if event.is_action_released("shoot"):
+		printerr("click")
+		shoot()
+	
+	
+func shoot():
+	var bullet_instance = bullet.instantiate()
+	#add_child(bullet_instance)
+	printerr("shoot")
+	#bullet_instance.global_position = end_of_gun.global_position
+	var target = get_global_mouse_position()
+	var direction_to_mouse = end_of_gun.global_position.direction_to(target).normalized()
+	#bullet_instance.set_direction(direction_to_mouse)
+	emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position,direction_to_mouse)
 
 
