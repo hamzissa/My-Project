@@ -23,3 +23,6 @@ shape = SubResource("CapsuleShape2D_n31of")
 
 [node name="EndOfGun" type="Marker2D" parent="."]
 position = Vector2(27, 10)
+
+[node name="gun_direction" type="Marker2D" parent="."]
+position = Vector2(37, 10)
