@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://bancox11vsiru"]
+
+[ext_resource type="FontFile" uid="uid://c2m8o40oeuefn" path="res://assets 2/fonts/LuckiestGuy-Regular.ttf" id="1_6de01"]
+[ext_resource type="Script" path="res://Scenes/Paused_menu/pause_screen.gd" id="1_jmsoo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdlyv"]
+bg_color = Color(0, 0, 0, 0.27451)
+
+[node name="pause_screen" type="CanvasLayer"]
+process_mode = 2
+layer = 2
+script = ExtResource("1_jmsoo")
+
+[node name="background" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rdlyv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.5
+offset_right = 110.5
+offset_bottom = 127.0
+grow_horizontal = 2
+theme_override_constants/separation = 60
+
+[node name="seperator" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_6de01")
+theme_override_font_sizes/font_size = 64
+text = "Paused
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="seperator2" type="Control" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6de01")
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6de01")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

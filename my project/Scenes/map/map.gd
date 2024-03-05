@@ -1,5 +1,5 @@
 extends Node2D
-
+var pause_scene: PackedScene = preload("res://Scenes/Paused_menu/pause_screen.tscn")
 var ai_scene: PackedScene = preload("res://Scenes/zombie/zombie.tscn")
 var spawn_area = Rect2(500, 500, 1000, 1000) # Define the area where AI can spawn
 @onready var bullet_manager =$bullet_manager
@@ -19,3 +19,13 @@ func spawn_ai():
 	var ai_instance = ai_scene.instantiate()
 	add_child(ai_instance)
 	ai_instance.global_position = random_position
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		var pause_menu = pause_scene.instantiate()
+		add_child(pause_menu)
+		
+		#var pause_menu = paused_scene.instantiate()
+		#add_child(pause_menu)
+		#var current_value : bool = get_tree().paused
+		#get_tree().paused = !current_value
