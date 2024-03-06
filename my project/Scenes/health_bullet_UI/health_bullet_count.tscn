@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://qar4om3s5a35"]
+
+[node name="health_bullet_UI" type="CanvasLayer"]

@@ -12,12 +12,20 @@ const mouse_speed = 5
 
 signal player_fired_bullet(bullet,position, direction)
 
+signal weapon_no_ammo
+
+var max_ammo: int = 10
+var current_ammo: int = max_ammo
+
+#crosshair
+var crosshair = preload("res://assets 2/images/crosshair_white-export.png")
+
 #direction mouse is pointing towards
 var mouse_direct
 var health = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Input.set_custom_mouse_cursor(crosshair)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,18 +52,31 @@ func _unhandled_input(event):
 	if event.is_action_pressed("shoot"):
 		printerr("click")
 		shoot()
-	
-	
+	if event.is_action_pressed("reload"):
+		print("reload")
+		reload()
+
+func reload():
+	current_ammo = max_ammo
+	printerr("\n reload \n ")
+
+
+
 func shoot():
-	var bullet_instance = bullet.instantiate()
-	#add_child(bullet_instance)
-	printerr("shoot")
-	#bullet_instance.global_position = end_of_gun.global_position
-	#var target = get_global_mouse_position()
-	#var direction_to_mouse = end_of_gun.global_position.direction_to(target).normalized()
-	#bullet_instance.set_direction(direction_to_mouse)
-	var direction = (gun_direction.global_position - end_of_gun.global_position).normalized()
-	emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position,direction)
+	if current_ammo != 0:
+		var bullet_instance = bullet.instantiate()
+		#add_child(bullet_instance)
+		printerr("shoot")
+		#bullet_instance.global_position = end_of_gun.global_position
+		#var target = get_global_mouse_position()
+		#var direction_to_mouse = end_of_gun.global_position.direction_to(target).normalized()
+		#bullet_instance.set_direction(direction_to_mouse)
+		var direction = (gun_direction.global_position - end_of_gun.global_position).normalized()
+		emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position,direction)
+		current_ammo -= 1
+		if current_ammo == 0:
+			emit_signal("weapon_no_ammo")
+	
 
 func handle_hit():
 	health -= 20

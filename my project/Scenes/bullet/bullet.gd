@@ -5,6 +5,8 @@ class_name bullet
 var direction = Vector2.ZERO
 @onready var kill_timer = $KillTimer
 
+
+
 func _ready():
 	kill_timer.start()
 	
@@ -25,4 +27,4 @@ func _on_kill_timer_timeout():
 func _on_body_entered(body):
 	if body.has_method("handle_hit"):
 		body.handle_hit()
-		queue_free()
+	queue_free()
