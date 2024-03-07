@@ -9,6 +9,8 @@ const MOUSE_SPEED = 5
 
 @onready var end_of_gun = $EndOfGun
 @onready var gun_direction = $GunDirection
+@onready var attack_cooldown = $AttackCooldown
+@onready var annimation_player = $AnimationPlayer
 
 signal player_fired_bullet(bullet,position, direction)
 signal weapon_no_ammo
@@ -56,7 +58,7 @@ func reload():
 	printerr("\n reload \n ")
 
 func shoot():
-	if current_ammo != 0:
+	if current_ammo != 0 && attack_cooldown.is_stopped():
 		var bullet_instance = bullet.instantiate()
 		#add_child(bullet_instance)
 		printerr("shoot")
@@ -67,8 +69,11 @@ func shoot():
 		var direction = (gun_direction.global_position - end_of_gun.global_position).normalized()
 		emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position,direction)
 		current_ammo -= 1
+		attack_cooldown.start()
+		annimation_player.play("muzzle_flash")
 		if current_ammo == 0:
 			emit_signal("weapon_no_ammo")
+				
 
 func handle_hit():
 	health -= 20
