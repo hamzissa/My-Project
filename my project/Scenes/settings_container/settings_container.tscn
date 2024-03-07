@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ba18pggvb1ym6"]
 
-[node name="settings_container" type="Control"]
+[node name="SettingsContainer" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

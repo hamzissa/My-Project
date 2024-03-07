@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mlakf"]
 size = Vector2(32, 10)
 
-[node name="bullet" type="Area2D"]
+[node name="Bullet" type="Area2D"]
 script = ExtResource("1_hfsat")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

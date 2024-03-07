@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/settings_menu/settings_menu.gd" id="1_8iyj5"]
 [ext_resource type="PackedScene" uid="uid://ba18pggvb1ym6" path="res://Scenes/settings_container/settings_container.tscn" id="3_4rphx"]
 
-[node name="settings_menu" type="Control"]
+[node name="SettingsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

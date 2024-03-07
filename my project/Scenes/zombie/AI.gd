@@ -8,9 +8,7 @@ class_name AI
 
 signal state_change(new_state) 
 
-var player: player = null
-
-# PATROL STATE 
+var player: Player = null
 var origin: Vector2 = Vector2.ZERO
 var patrol_location: Vector2 = Vector2(600,600)
 var actor: CharacterBody2D = null
@@ -33,14 +31,12 @@ func set_state(new_state: int) :
 		
 	current_state = new_state
 	emit_signal("state_changed", current_state)
-	
-	
+
 func _on_player_detection_zone_body_entered(body: Node) -> void:
 	if body.is_in_group("player"): 
 		printerr("engage")
 		set_state(State.ENGAGE)# Replace with function body.
 		player = body	
-
 
 func _on_patrol_timer_timeout():
 	#printerr("test")

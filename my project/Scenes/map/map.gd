@@ -1,15 +1,17 @@
 extends Node2D
-var pause_scene: PackedScene = preload("res://Scenes/Paused_menu/pause_screen.tscn")
+
+@onready var bulletManager =$BulletManager
+@onready var player = $bullet_manager
+
+var pause_scene: PackedScene = preload("res://Scenes/paused_menu/pause_screen.tscn")
 var ai_scene: PackedScene = preload("res://Scenes/zombie/zombie.tscn")
 var spawn_area = Rect2(500, 500, 1000, 1000) # Define the area where AI can spawn
-@onready var bullet_manager =$bullet_manager
-@onready var player = $bullet_manager
+
 func _ready() -> void:
 	randomize();
-	$player.connect("player_fired_bullet", bullet_manager.handle_bullet_spawned,1)
-	#player.player_fired_bullet.connect("player_fired_bullet", bullet_manager,"handle_bullet_spawned") 
+	$Player.connect("player_fired_bullet", bulletManager.handle_bullet_spawned,1)
+	#player.player_fired_bullet.connect("player_fired_bullet", bulletManager,"handle_bullet_spawned") 
 	for i in range(10): spawn_ai()
-	
 	
 func spawn_ai():
 	var random_position = Vector2(

@@ -1,32 +1,27 @@
 extends CharacterBody2D
 
+class_name Player
 
+const SPEED: float = 130.0 #speed of player and mouse speed
+const MOUSE_SPEED = 5
 
-class_name player
-#speed of player and mouse speed
-const speed: float = 130.0
-const mouse_speed = 5
 @export var bullet :PackedScene
+
 @onready var end_of_gun = $EndOfGun
-@onready var gun_direction = $gun_direction
+@onready var gun_direction = $GunDirection
 
 signal player_fired_bullet(bullet,position, direction)
-
 signal weapon_no_ammo
 
-var max_ammo: int = 10
+var max_ammo: int = 10000
 var current_ammo: int = max_ammo
-
-#crosshair
-var crosshair = preload("res://assets 2/images/crosshair_white-export.png")
-
-#direction mouse is pointing towards
-var mouse_direct
+var crosshair = preload("res://assets 2/images/crosshair_white-export.png") #crosshair
+var mouse_direct #direction mouse is pointing towards
 var health = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_custom_mouse_cursor(crosshair)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -37,14 +32,14 @@ func _physics_process(delta):
 	
 	#to make player face in direction of mouse
 	if mouse_direct:
-		global_rotation = lerp_angle(global_rotation, mouse_direct, delta*mouse_speed)
+		global_rotation = lerp_angle(global_rotation, mouse_direct, delta*MOUSE_SPEED)
 
 func get_input() -> void:
 	#playermovement WASD 
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input.y = Input.get_action_strength("down") - Input.get_action_strength("up")
-	velocity = input.normalized() * speed
+	velocity = input.normalized() * SPEED
 	#direction of mouse
 	mouse_direct = (get_global_mouse_position() - global_position).angle()
 
@@ -60,8 +55,6 @@ func reload():
 	current_ammo = max_ammo
 	printerr("\n reload \n ")
 
-
-
 func shoot():
 	if current_ammo != 0:
 		var bullet_instance = bullet.instantiate()
@@ -76,7 +69,6 @@ func shoot():
 		current_ammo -= 1
 		if current_ammo == 0:
 			emit_signal("weapon_no_ammo")
-	
 
 func handle_hit():
 	health -= 20

@@ -387,20 +387,20 @@ layer_4/y_sort_origin = 0
 layer_4/z_index = 0
 layer_4/tile_data = PackedInt32Array()
 
-[node name="player" parent="." instance=ExtResource("7_15yd8")]
+[node name="Player" parent="." instance=ExtResource("7_15yd8")]
 position = Vector2(251, 283)
 
-[node name="zombie" parent="." instance=ExtResource("8_dyws6")]
+[node name="Zombie" parent="." instance=ExtResource("8_dyws6")]
 position = Vector2(536, 264)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." groups=["nav_reigon"]]
+[node name="NavigationZone" type="NavigationRegion2D" parent="." groups=["nav_reigon"]]
 position = Vector2(1, 2)
 navigation_polygon = SubResource("NavigationPolygon_wcvdx")
 
-[node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D" groups=["nav_reigon"]]
+[node name="Island" type="Polygon2D" parent="NavigationZone" groups=["nav_reigon"]]
 position = Vector2(20, -4)
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(983, 883, 1531, 875, 1535, 1195, 983, 1191)
 
-[node name="bullet_manager" type="Node2D" parent="."]
+[node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource("10_305pp")
