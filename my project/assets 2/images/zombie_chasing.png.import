@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jbcalyx8ynat"
-path="res://.godot/imported/shoot2.png-185b681fe62bd6f2911a20dfdb14202c.ctex"
+uid="uid://cd56oc1gpuci3"
+path="res://.godot/imported/zombie_chasing.png-f8dea0fbf337d41e8f3e27c05df9be59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets 2/images/shoot2.png"
-dest_files=["res://.godot/imported/shoot2.png-185b681fe62bd6f2911a20dfdb14202c.ctex"]
+source_file="res://assets 2/images/zombie_chasing.png"
+dest_files=["res://.godot/imported/zombie_chasing.png-f8dea0fbf337d41e8f3e27c05df9be59.ctex"]
 
 [params]
 

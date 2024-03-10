@@ -9,7 +9,7 @@ radius = 17.0
 height = 46.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s7jn"]
-radius = 28.0713
+radius = 185.327
 
 [node name="Zombie" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_fus6t")

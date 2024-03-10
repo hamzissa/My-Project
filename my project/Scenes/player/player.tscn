@@ -70,7 +70,7 @@ one_shot = true
 visible = false
 position = Vector2(31, 10)
 rotation = -1.5708
-scale = Vector2(0.870334, 0.670157)
+scale = Vector2(1, 0.77)
 texture = ExtResource("4_o3uki")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -14,6 +14,7 @@ var patrol_location: Vector2 = Vector2(600,600)
 var actor: CharacterBody2D = null
 var patrol_location_reached : bool = false
 var actor_velocity: Vector2 = Vector2.ZERO
+var engaged_zombie = preload("res://assets 2/images/zombie_standing.png")
 
 enum State {
 	PATROL,
@@ -70,6 +71,22 @@ func _physics_process(delta: float) -> void:
 			else:
 				_on_patrol_timer_timeout()		
 				patrol_location_reached = false
+		State.ENGAGE:	
+			if player != null:
+				var direction_to_player = actor.global_position.direction_to(player.global_position)
+				# Set the velocity to move towards the player
+				var velocity_multiplier = 100
+				actor.velocity = direction_to_player * velocity_multiplier
+				# Move the zombie towards the player
+				actor.move_and_slide()
+				# Update the rotation of the zombie to face the player
+				actor.rotation = direction_to_player.angle()
+				
+				# Change sprite to indicate chasing
+				$"../Sprite2D".texture = ResourceLoader.load("res://assets 2/images/zombie_chasing.png")
+		_:
+			print("Error: state is invalid for Zombie")		
+				
 				
 func initilize(actor):
 	self.actor = actor	
