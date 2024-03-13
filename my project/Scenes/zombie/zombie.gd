@@ -5,12 +5,7 @@ class_name Zombie
 @onready var sprite = $Sprite2D
 @onready var ai = $AI
 
-@export_group("motion")
-@export var rotate_speed = 2
-@export var walking = 2
-@export var nav_pos = 2
-@export var nav_target: Node2D
-@export var speed = 90
+
 
 var health = 100
 
@@ -19,7 +14,7 @@ func _ready():
 	ai.initilize(self)
 
 func handle_hit():
-	health -= 20
+	health -= 33.9
 	print("enemy hit!", health)
 	if health<= 0:
 		queue_free()
