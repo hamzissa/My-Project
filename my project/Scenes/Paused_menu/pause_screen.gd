@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-class_name PausedMenu
+
 
 #@onready var Resume_button = $CenterContainer/VBoxContainer/Resume as Button
 #@onready var quit_button = $CenterContainer/VBoxContainer/Quit as Button

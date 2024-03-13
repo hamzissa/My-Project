@@ -1,3 +1,96 @@
-[gd_scene format=3 uid="uid://qar4om3s5a35"]
+[gd_scene load_steps=5 format=3 uid="uid://qar4om3s5a35"]
+
+[ext_resource type="FontFile" uid="uid://culev1mfi1j2n" path="res://assets 2/fonts/gemunu-libre-v8-latin-700.ttf" id="1_fm7m2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb5rj"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrcms"]
+bg_color = Color(0.6, 0.0235294, 0.0117647, 0.611765)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cc2wm"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="health_bullet_UI" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="top" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="health_bar" type="ProgressBar" parent="VBoxContainer/top"]
+show_behind_parent = true
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fb5rj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nrcms")
+value = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/top"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_constants/separation = 750
+
+[node name="middle" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="bottom" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="cuurent_ammo" type="Label" parent="VBoxContainer/bottom"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_fm7m2")
+theme_override_font_sizes/font_size = 50
+text = "30"
+
+[node name="_" type="Label" parent="VBoxContainer/bottom"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_fm7m2")
+theme_override_font_sizes/font_size = 50
+text = "/"
+
+[node name="max_ammo" type="Label" parent="VBoxContainer/bottom"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_fm7m2")
+theme_override_font_sizes/font_size = 50
+text = "30"
+
+[node name="score" type="Label" parent="VBoxContainer/bottom"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_fm7m2")
+theme_override_font_sizes/font_size = 40
+text = "score:"
+
+[node name="VSeparator" type="VSeparator" parent="."]
+offset_left = 304.0
+offset_right = 1054.0
+offset_bottom = 30.0
+theme_override_constants/separation = 750
+theme_override_styles/separator = SubResource("StyleBoxFlat_cc2wm")
