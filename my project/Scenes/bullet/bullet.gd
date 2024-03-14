@@ -20,7 +20,7 @@ func set_direction(direction: Vector2):
 	rotation += direction.angle()
 
 func _on_kill_timer_timeout():
-	queue_free() # Replace with function body.
+	queue_free() 
 
 func _on_body_entered(body):
 	if body.has_method("handle_hit"):

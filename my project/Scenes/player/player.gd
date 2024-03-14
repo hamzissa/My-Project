@@ -11,6 +11,7 @@ const MOUSE_SPEED = 5
 @onready var gun_direction = $GunDirection
 @onready var attack_cooldown = $AttackCooldown
 @onready var annimation_player = $AnimationPlayer
+@onready var shoot_sound = $shoot_sound
 
 signal player_fired_bullet(bullet,position, direction)
 signal weapon_no_ammo
@@ -62,6 +63,7 @@ func shoot():
 		var bullet_instance = bullet.instantiate()
 		#add_child(bullet_instance)
 		printerr("shoot")
+		shoot_sound.play()
 		#bullet_instance.global_position = end_of_gun.global_position
 		#var target = get_global_mouse_position()
 		#var direction_to_mouse = end_of_gun.global_position.direction_to(target).normalized()
@@ -74,6 +76,7 @@ func shoot():
 		if current_ammo == 0:
 			emit_signal("weapon_no_ammo")
 				
+
 
 func handle_hit():
 	health -= 20
