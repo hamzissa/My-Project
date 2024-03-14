@@ -1,9 +1,10 @@
 extends Control
 
 class_name MainMenu
-
+#declaring all my global variables
 @onready var play_button = $MarginContainer/HBoxContainer/VBoxContainer/Play as Button
 @onready var settings_button =$MarginContainer/HBoxContainer/VBoxContainer/Settings as Button
+@onready var leaderboard_button = $MarginContainer/HBoxContainer/VBoxContainer/leaderboard as Button
 @onready var quit_button =$MarginContainer/HBoxContainer/VBoxContainer/Quit as Button
 @onready var map = preload("res://Scenes/map/map.tscn") as PackedScene
 @onready var settings_menu = $settings_menu as SettingsMenu
@@ -15,15 +16,22 @@ class_name MainMenu
 func _ready():
 	handle_connection_of_signals()
 
+#start main
 func on_play() -> void:
 	#get_tree().change_scene_to_file(("res://Scenes/map/map.tscn"))
 	get_tree().change_scene_to_packed(map)
 
+#go to settings
 func on_settings() -> void:
 	margin_container.visible = false
 	settings_menu.set_process(true)
 	settings_menu.visible = true
 
+#go to leaderboard
+func on_leaderboard() ->void:
+	pass
+
+#quit the game
 func on_quit() -> void:
 	get_tree().quit()
 
@@ -31,6 +39,7 @@ func on_back_settings_menu() -> void:
 	margin_container.visible = true
 	settings_menu.visible = false
 
+#handles all the buttons
 func handle_connection_of_signals() -> void:
 	play_button.button_down.connect(on_play)
 	settings_button.button_down.connect(on_settings)

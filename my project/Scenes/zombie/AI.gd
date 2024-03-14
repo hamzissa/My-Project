@@ -36,7 +36,7 @@ func set_state(new_state: int) :
 func _on_player_detection_zone_body_entered(body: Node) -> void:
 	if body.is_in_group("player"): 
 		printerr("engage")
-		set_state(State.ENGAGE)# Replace with function body.
+		set_state(State.ENGAGE)
 		player = body	
 
 func _on_patrol_timer_timeout():

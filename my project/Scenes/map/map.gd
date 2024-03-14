@@ -22,7 +22,9 @@ func spawn_ai():
 	add_child(ai_instance)
 	ai_instance.global_position = random_position
 
+#handles paused menu
 func _unhandled_input(event: InputEvent) -> void:
+	#if paused pressed it goes to paused menu
 	if event.is_action_pressed("pause"):
 		var pause_menu = pause_scene.instantiate()
 		add_child(pause_menu)
