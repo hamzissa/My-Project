@@ -11,15 +11,18 @@ const MOUSE_SPEED = 5
 @onready var gun_direction = $GunDirection
 @onready var attack_cooldown = $AttackCooldown
 @onready var annimation_player = $AnimationPlayer
+@onready var health_bullet_ui: CanvasLayer = get_node("../health_bullet_UI") # Adjust the path according to your scene structure
+@onready var current_ammo_label: Label = health_bullet_ui.get_node("VBoxContainer").get_node("bottom").get_node("current_ammo")
 
 signal player_fired_bullet(bullet,position, direction)
 signal weapon_no_ammo
 
-var max_ammo: int = 10000
+var max_ammo: int = 100
 var current_ammo: int = max_ammo
 var crosshair = preload("res://assets 2/images/crosshair_white-export.png") #crosshair
 var mouse_direct #direction mouse is pointing towards
 var health = 100
+var stats: PackedScene = preload("res://Scenes/health_bullet_UI/health_bullet_count.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -69,6 +72,7 @@ func shoot():
 		var direction = (gun_direction.global_position - end_of_gun.global_position).normalized()
 		emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position,direction)
 		current_ammo -= 1
+		current_ammo_label.text = str(current_ammo)
 		attack_cooldown.start()
 		annimation_player.play("muzzle_flash")
 		if current_ammo == 0:
