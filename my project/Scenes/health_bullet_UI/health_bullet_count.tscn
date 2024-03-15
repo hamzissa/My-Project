@@ -42,7 +42,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_fb5rj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nrcms")
-value = 50.0
+value = 100.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/top"]
 layout_mode = 2
@@ -86,7 +86,7 @@ size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_fm7m2")
 theme_override_font_sizes/font_size = 40
-text = "score:"
+text = "0"
 
 [node name="VSeparator" type="VSeparator" parent="."]
 offset_left = 304.0
