@@ -3,8 +3,12 @@ extends Node2D
 class_name AI
 
 @onready var player_detection_zone = $PlayerDetectionZone
+@onready var player_detection_touch_zone = $PlayerDetectionTouchZone
 @onready var current_state = State.PATROL : set = set_state
 @onready var patrol_timer = $PatrolTimer
+@onready var health_bullet_ui: CanvasLayer = get_node("../../health_bullet_UI") # Adjust the path according to your scene structure
+@onready var health_bar: ProgressBar = health_bullet_ui.get_node("VBoxContainer").get_node("top").get_node("health_bar")
+
 
 signal state_change(new_state) 
 
@@ -38,6 +42,11 @@ func _on_player_detection_zone_body_entered(body: Node) -> void:
 		printerr("engage")
 		set_state(State.ENGAGE)# Replace with function body.
 		player = body	
+
+func _player_detection_touch_zone_body_entered(body: Node) -> void:
+	if body.is_in_group("player"):
+		print("Zombie is touching the player!")
+		health_bar.value = float(int(health_bar.value) - 10)
 
 func _on_patrol_timer_timeout():
 	#printerr("test")

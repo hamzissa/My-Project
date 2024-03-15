@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4mium4bjbfxp"]
+[gd_scene load_steps=7 format=3 uid="uid://d4mium4bjbfxp"]
 
 [ext_resource type="Script" path="res://Scenes/zombie/zombie.gd" id="1_fus6t"]
 [ext_resource type="Texture2D" uid="uid://dtlw8jha53os0" path="res://assets 2/images/zombie_walking.png" id="1_h5x3i"]
@@ -10,6 +10,9 @@ height = 46.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s7jn"]
 radius = 185.327
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3s7jx"]
+radius = 24.7386
 
 [node name="Zombie" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_fus6t")
@@ -25,12 +28,18 @@ script = ExtResource("3_4rv6w")
 
 [node name="PlayerDetectionZone" type="Area2D" parent="AI"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDetectionZone"]
+[node name="PlayerDetectionZoneCS" type="CollisionShape2D" parent="AI/PlayerDetectionZone"]
 shape = SubResource("CircleShape2D_3s7jn")
+
+[node name="PlayerDetectionTouchZone" type="Area2D" parent="AI"]
+
+[node name="PlayerDetectionTouchZoneCS" type="CollisionShape2D" parent="AI/PlayerDetectionTouchZone"]
+shape = SubResource("CircleShape2D_3s7jx")
 
 [node name="PatrolTimer" type="Timer" parent="AI"]
 wait_time = 3.0
 one_shot = true
 
 [connection signal="body_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_player_detection_zone_body_entered"]
+[connection signal="body_entered" from="AI/PlayerDetectionTouchZone" to="AI" method="_player_detection_touch_zone_body_entered"]
 [connection signal="timeout" from="AI/PatrolTimer" to="AI" method="_on_patrol_timer_timeout"]
