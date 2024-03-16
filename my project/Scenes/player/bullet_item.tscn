@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddwv7uy7t58wc"]
+
+[ext_resource type="Script" path="res://Scenes/player/bullet_item.gd" id="1_1pwfn"]
+[ext_resource type="Texture2D" uid="uid://bg32sj3df8aoq" path="res://assets 2/images/ammo_pickup.png" id="1_47e7g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a0bds"]
+radius = 13.0384
+
+[node name="BulletItem" type="Area2D"]
+script = ExtResource("1_1pwfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a0bds")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.86102e-06, -1.19209e-07)
+scale = Vector2(1.9375, 1.9375)
+texture = ExtResource("1_47e7g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

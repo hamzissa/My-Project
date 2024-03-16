@@ -12,7 +12,9 @@ const MOUSE_SPEED = 5
 @onready var attack_cooldown = $AttackCooldown
 @onready var annimation_player = $AnimationPlayer
 @onready var health_bullet_ui: CanvasLayer = get_node("../health_bullet_UI") # Adjust the path according to your scene structure
+@onready var health_bar: ProgressBar = health_bullet_ui.get_node("VBoxContainer").get_node("top").get_node("health_bar")
 @onready var current_ammo_label: Label = health_bullet_ui.get_node("VBoxContainer").get_node("bottom").get_node("current_ammo")
+
 
 signal player_fired_bullet(bullet,position, direction)
 signal weapon_no_ammo
@@ -23,11 +25,12 @@ var crosshair = preload("res://assets 2/images/crosshair_white-export.png") #cro
 var mouse_direct #direction mouse is pointing towards
 var health = 100
 var stats: PackedScene = preload("res://Scenes/health_bullet_UI/health_bullet_count.tscn")
+var spawn_timer: float = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_custom_mouse_cursor(crosshair)
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	#calling function to allow the movment of the sprite
@@ -35,9 +38,19 @@ func _physics_process(delta):
 	#function to move
 	move_and_slide()
 	
+	var parent_node = get_parent()
+	if parent_node != null:
+		spawn_timer -= delta
+		if spawn_timer <= 0:
+			parent_node.spawn_bullet_pickup()
+			parent_node.spawn_health_pickup()
+			spawn_timer = 30
+			
+
 	#to make player face in direction of mouse
 	if mouse_direct:
 		global_rotation = lerp_angle(global_rotation, mouse_direct, delta*MOUSE_SPEED)
+		
 
 func get_input() -> void:
 	#playermovement WASD 
@@ -82,3 +95,14 @@ func shoot():
 func handle_hit():
 	health -= 20
 	print("player hit!", health)
+	
+
+func _on_bullet_item_bullet_collected():
+	current_ammo = max_ammo
+	current_ammo_label.text = str(current_ammo)
+	print("Bullet collected!")
+	
+func _on_health_item_health_collected():
+	health = 100
+	health_bar.value = float(int(100))
+	print("Health collected!")	

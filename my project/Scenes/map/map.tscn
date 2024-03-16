@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4003ycps0esu"]
+[gd_scene load_steps=23 format=3 uid="uid://c4003ycps0esu"]
 
 [ext_resource type="Script" path="res://Scenes/map/map.gd" id="1_0qnla"]
 [ext_resource type="Texture2D" uid="uid://d2v3ficu5t70q" path="res://assets 2/spritesheets/grass.png" id="1_oqr8n"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://d4mium4bjbfxp" path="res://Scenes/zombie/zombie.tscn" id="8_dyws6"]
 [ext_resource type="Script" path="res://Scenes/bullet_manager/bullet_manager.gd" id="10_305pp"]
 [ext_resource type="PackedScene" uid="uid://qar4om3s5a35" path="res://Scenes/health_bullet_UI/health_bullet_count.tscn" id="11_g7oqw"]
+[ext_resource type="PackedScene" uid="uid://ddwv7uy7t58wc" path="res://Scenes/player/bullet_item.tscn" id="12_147xw"]
+[ext_resource type="PackedScene" uid="uid://cjx82gm80a7yn" path="res://Scenes/player/health_item.tscn" id="13_5vb67"]
+[ext_resource type="Script" path="res://Scenes/player/health_item.gd" id="14_kfcce"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtrpg"]
 texture = ExtResource("1_oqr8n")
@@ -407,3 +410,16 @@ polygon = PackedVector2Array(983, 883, 1531, 875, 1535, 1195, 983, 1191)
 script = ExtResource("10_305pp")
 
 [node name="health_bullet_UI" parent="." instance=ExtResource("11_g7oqw")]
+
+[node name="BulletItem" parent="." instance=ExtResource("12_147xw")]
+visible = false
+z_index = 1
+position = Vector2(310, 193)
+
+[node name="HealthItem" parent="." instance=ExtResource("13_5vb67")]
+visible = false
+z_index = 1
+position = Vector2(278, 193)
+script = ExtResource("14_kfcce")
+
+[connection signal="body_entered" from="HealthItem" to="HealthItem" method="_on_body_entered"]
