@@ -8,6 +8,7 @@ class_name Zombie
 @onready var score_label: Label = health_bullet_ui.get_node("VBoxContainer").get_node("bottom").get_node("score")
 
 var health = 100
+var number_of_zombies_to_spawn = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,4 +19,8 @@ func handle_hit():
 	print("enemy hit!", health)
 	if health<= 0:
 		queue_free()
+		var parent_node = get_parent()
+		if parent_node != null:
+			for i in range(number_of_zombies_to_spawn): 
+				parent_node.spawn_ai()
 		score_label.text = str(int(score_label.text) + 1)
