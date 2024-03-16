@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4mium4bjbfxp"]
+[gd_scene load_steps=8 format=3 uid="uid://d4mium4bjbfxp"]
 
 [ext_resource type="Script" path="res://Scenes/zombie/zombie.gd" id="1_fus6t"]
 [ext_resource type="Texture2D" uid="uid://dtlw8jha53os0" path="res://assets 2/images/zombie_walking.png" id="1_h5x3i"]
 [ext_resource type="Script" path="res://Scenes/zombie/AI.gd" id="3_4rv6w"]
+[ext_resource type="AudioStream" uid="uid://ceb8laqr27txk" path="res://assets 2/sounds/gasp1.wav" id="4_3golb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4d54y"]
 radius = 17.0
 height = 46.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s7jn"]
-radius = 185.327
+radius = 228.02
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s7jx"]
 radius = 24.7386
@@ -39,6 +40,9 @@ shape = SubResource("CircleShape2D_3s7jx")
 [node name="PatrolTimer" type="Timer" parent="AI"]
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3golb")
 
 [connection signal="body_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_player_detection_zone_body_entered"]
 [connection signal="body_entered" from="AI/PlayerDetectionTouchZone" to="AI" method="_player_detection_touch_zone_body_entered"]
