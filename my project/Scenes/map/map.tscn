@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c4003ycps0esu"]
+[gd_scene load_steps=22 format=3 uid="uid://c4003ycps0esu"]
 
 [ext_resource type="Script" path="res://Scenes/map/map.gd" id="1_0qnla"]
 [ext_resource type="Texture2D" uid="uid://d2v3ficu5t70q" path="res://assets 2/spritesheets/grass.png" id="1_oqr8n"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://qar4om3s5a35" path="res://Scenes/health_bullet_UI/health_bullet_count.tscn" id="11_g7oqw"]
 [ext_resource type="PackedScene" uid="uid://ddwv7uy7t58wc" path="res://Scenes/player/bullet_item.tscn" id="12_147xw"]
 [ext_resource type="PackedScene" uid="uid://cjx82gm80a7yn" path="res://Scenes/player/health_item.tscn" id="13_5vb67"]
-[ext_resource type="Script" path="res://Scenes/player/health_item.gd" id="14_kfcce"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtrpg"]
 texture = ExtResource("1_oqr8n")
@@ -420,6 +419,3 @@ position = Vector2(310, 193)
 visible = false
 z_index = 1
 position = Vector2(278, 193)
-script = ExtResource("14_kfcce")
-
-[connection signal="body_entered" from="HealthItem" to="HealthItem" method="_on_body_entered"]

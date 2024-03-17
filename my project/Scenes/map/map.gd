@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var bulletManager = $BulletManager
-@onready var player = $bullet_manager
 @onready var excluded_area: Polygon2D = $NavigationZone/Island
 #@onready var spawn_area: NavigationRegion2D = $NavigationZone
 
