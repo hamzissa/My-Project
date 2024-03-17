@@ -47,6 +47,7 @@ func _player_detection_touch_zone_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		print("Zombie is touching the player!")
 		health_bar.value = float(int(health_bar.value) - 10)
+		$"../AudioStreamPlayer2D".play()
 
 func _on_patrol_timer_timeout():
 	#printerr("test")

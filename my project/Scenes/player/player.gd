@@ -78,6 +78,7 @@ func shoot():
 		var bullet_instance = bullet.instantiate()
 		#add_child(bullet_instance)
 		printerr("shoot")
+		$AudioStreamPlayer2D.play()
 		#bullet_instance.global_position = end_of_gun.global_position
 		#var target = get_global_mouse_position()
 		#var direction_to_mouse = end_of_gun.global_position.direction_to(target).normalized()
