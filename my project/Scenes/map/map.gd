@@ -8,7 +8,6 @@ var pause_scene: PackedScene = preload("res://Scenes/paused_menu/pause_screen.ts
 var ai_scene: PackedScene = preload("res://Scenes/zombie/zombie.tscn")
 var spawn_area = Rect2(450, 450, 1100, 1100) 
 
-
 var number_of_zombies_at_start = 10
 var bullet_pickup_instance = null
 var health_pickup_instance = null

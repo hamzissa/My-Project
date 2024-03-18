@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
-const SPEED: float = 130.0 #speed of player and mouse speed
+const SPEED: float = 200.0 #speed of player and mouse speed
 const MOUSE_SPEED = 5
 
 @export var bullet :PackedScene
@@ -20,6 +20,7 @@ signal player_fired_bullet(bullet,position, direction)
 signal weapon_no_ammo
 
 var max_ammo: int = 100
+#var current_ammo: int = max_ammo
 var current_ammo: int = max_ammo
 var crosshair = preload("res://assets 2/images/crosshair_white-export.png") #crosshair
 var mouse_direct #direction mouse is pointing towards

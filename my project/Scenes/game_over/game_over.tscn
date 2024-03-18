@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://dojhtt15go8oa"]
+
+[ext_resource type="Script" path="res://Scenes/game_over/game_over.gd" id="1_p3h2q"]
+[ext_resource type="FontFile" uid="uid://c2m8o40oeuefn" path="res://assets 2/fonts/LuckiestGuy-Regular.ttf" id="1_tpsn3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsm04"]
+bg_color = Color(0, 0, 0, 0.2)
+
+[node name="game_over" type="CanvasLayer"]
+script = ExtResource("1_p3h2q")
+
+[node name="background" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsm04")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="seperator" type="Control" parent="background/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_tpsn3")
+theme_override_font_sizes/font_size = 64
+text = "Game Over
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="seperator2" type="Control" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Main_menu" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tpsn3")
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tpsn3")
+theme_override_font_sizes/font_size = 40
+text = "Quit"

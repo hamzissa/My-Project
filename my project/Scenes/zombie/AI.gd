@@ -9,7 +9,10 @@ class_name AI
 @onready var health_bullet_ui: CanvasLayer = get_node("../../health_bullet_UI") # Adjust the path according to your scene structure
 @onready var health_bar: ProgressBar = health_bullet_ui.get_node("VBoxContainer").get_node("top").get_node("health_bar")
 
+#@onready var game_over_ui: CanvasLayer = get_node("../../game_over") 
+#@onready var score_label: Label = game_over_ui.get_node("CenterContainer").get_node("VBoxContainer").get_node("score")
 
+@onready var score_label2: Label = health_bullet_ui.get_node("VBoxContainer").get_node("bottom").get_node("VBoxContainer").get_node("score")
 signal state_change(new_state) 
 
 var player: Player = null
@@ -19,6 +22,7 @@ var actor: CharacterBody2D = null
 var patrol_location_reached : bool = false
 var actor_velocity: Vector2 = Vector2.ZERO
 var engaged_zombie = preload("res://assets 2/images/zombie_standing.png")
+var game_over: PackedScene = preload("res://Scenes/game_over/game_over.tscn")
 
 enum State {
 	PATROL,
@@ -48,6 +52,12 @@ func _player_detection_touch_zone_body_entered(body: Node) -> void:
 		print("Zombie is touching the player!")
 		health_bar.value = float(int(health_bar.value) - 10)
 		$"../AudioStreamPlayer2D".play()
+		if health_bar.value == 0:
+			var game_over_end = game_over.instantiate()
+			add_child(game_over_end)
+			#get_tree().change_scene_to_file("res://Scenes/game_over/game_over.tscn")
+			#score_label.text = str(int(score_label2.text))
+		
 
 func _on_patrol_timer_timeout():
 	#printerr("test")
