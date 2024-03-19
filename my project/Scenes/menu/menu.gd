@@ -9,14 +9,10 @@ class_name MainMenu
 @onready var settings_menu = $settings_menu as SettingsMenu
 @onready var margin_container =$MarginContainer as MarginContainer
 
-#func _on_start_button_pressed():
-	#get_tree().change_scene_to_file(("res://Scenes/map/map.tscn"))
-
 func _ready():
 	handle_connection_of_signals()
 
 func on_play() -> void:
-	#get_tree().change_scene_to_file(("res://Scenes/map/map.tscn"))
 	get_tree().change_scene_to_packed(map)
 
 func on_settings() -> void:
