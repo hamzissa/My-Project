@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://d4mium4bjbfxp"]
 
 [ext_resource type="Script" path="res://Scenes/zombie/zombie.gd" id="1_fus6t"]
-[ext_resource type="Texture2D" uid="uid://dtlw8jha53os0" path="res://assets 2/images/zombie_walking.png" id="1_h5x3i"]
+[ext_resource type="Texture2D" uid="uid://dtlw8jha53os0" path="res://assets/images/zombie_walking.png" id="1_h5x3i"]
 [ext_resource type="Script" path="res://Scenes/zombie/AI.gd" id="3_4rv6w"]
-[ext_resource type="AudioStream" uid="uid://ceb8laqr27txk" path="res://assets 2/sounds/gasp1.wav" id="4_3golb"]
+[ext_resource type="AudioStream" uid="uid://ceb8laqr27txk" path="res://assets/sounds/gasp1.wav" id="4_3golb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4d54y"]
 radius = 17.0

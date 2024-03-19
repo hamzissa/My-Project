@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dojhtt15go8oa"]
 
 [ext_resource type="Script" path="res://Scenes/game_over/game_over.gd" id="1_p3h2q"]
-[ext_resource type="FontFile" uid="uid://c2m8o40oeuefn" path="res://assets 2/fonts/LuckiestGuy-Regular.ttf" id="1_tpsn3"]
+[ext_resource type="FontFile" uid="uid://c2m8o40oeuefn" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_tpsn3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsm04"]
 bg_color = Color(0, 0, 0, 0.2)

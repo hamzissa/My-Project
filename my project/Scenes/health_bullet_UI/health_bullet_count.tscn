@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://qar4om3s5a35"]
 
-[ext_resource type="FontFile" uid="uid://culev1mfi1j2n" path="res://assets 2/fonts/gemunu-libre-v8-latin-700.ttf" id="1_fm7m2"]
+[ext_resource type="FontFile" uid="uid://culev1mfi1j2n" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="1_fm7m2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb5rj"]
 bg_color = Color(0, 0, 0, 0.392157)

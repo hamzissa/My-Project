@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://cun667h4ky25w"]
 
-[ext_resource type="Texture2D" uid="uid://d2v3ficu5t70q" path="res://assets 2/spritesheets/grass.png" id="1_aerwp"]
-[ext_resource type="Texture2D" uid="uid://y0ocm5sykwq3" path="res://assets 2/spritesheets/concrete.png" id="2_0ec8x"]
-[ext_resource type="Texture2D" uid="uid://byvdgypgtkox3" path="res://assets 2/spritesheets/floor.png" id="3_7hwas"]
-[ext_resource type="Texture2D" uid="uid://dmncb1l5i1o2p" path="res://assets 2/spritesheets/walls.png" id="4_ao34u"]
-[ext_resource type="Texture2D" uid="uid://dll8bhi1tgq8s" path="res://assets 2/spritesheets/objects.png" id="5_afbk1"]
-[ext_resource type="Texture2D" uid="uid://butgif2tv0j3o" path="res://assets 2/spritesheets/playeholder_tiles_64.png" id="6_52qbi"]
+[ext_resource type="Texture2D" uid="uid://d2v3ficu5t70q" path="res://assets/spritesheets/grass.png" id="1_aerwp"]
+[ext_resource type="Texture2D" uid="uid://y0ocm5sykwq3" path="res://assets/spritesheets/concrete.png" id="2_0ec8x"]
+[ext_resource type="Texture2D" uid="uid://byvdgypgtkox3" path="res://assets/spritesheets/floor.png" id="3_7hwas"]
+[ext_resource type="Texture2D" uid="uid://dmncb1l5i1o2p" path="res://assets/spritesheets/walls.png" id="4_ao34u"]
+[ext_resource type="Texture2D" uid="uid://dll8bhi1tgq8s" path="res://assets/spritesheets/objects.png" id="5_afbk1"]
+[ext_resource type="Texture2D" uid="uid://butgif2tv0j3o" path="res://assets/spritesheets/playeholder_tiles_64.png" id="6_52qbi"]
 [ext_resource type="PackedScene" uid="uid://5jcwukxxvkn4" path="res://Scenes/player/player.tscn" id="7_t8moe"]
 [ext_resource type="PackedScene" uid="uid://d4mium4bjbfxp" path="res://Scenes/zombie/zombie.tscn" id="8_dbwlx"]
 

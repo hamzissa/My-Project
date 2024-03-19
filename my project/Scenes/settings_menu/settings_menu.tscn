@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cffouhpparavx"]
 
-[ext_resource type="FontFile" uid="uid://c2m8o40oeuefn" path="res://assets 2/fonts/LuckiestGuy-Regular.ttf" id="1_2us5e"]
+[ext_resource type="FontFile" uid="uid://c2m8o40oeuefn" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_2us5e"]
 [ext_resource type="Script" path="res://Scenes/settings_menu/settings_menu.gd" id="1_8iyj5"]
 [ext_resource type="PackedScene" uid="uid://ba18pggvb1ym6" path="res://Scenes/settings_container/settings_container.tscn" id="3_4rphx"]
 

@@ -22,7 +22,7 @@ signal weapon_no_ammo
 var max_ammo: int = 100
 #var current_ammo: int = max_ammo
 var current_ammo: int = max_ammo
-var crosshair = preload("res://assets 2/images/crosshair_white-export.png") #crosshair
+var crosshair = preload("res://assets/images/crosshair_white-export.png") #crosshair
 var mouse_direct #direction mouse is pointing towards
 var health = 100
 var stats: PackedScene = preload("res://Scenes/health_bullet_UI/health_bullet_count.tscn")
