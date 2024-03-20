@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk3gaa8ye1fx8"]
+[gd_scene load_steps=6 format=3 uid="uid://bk3gaa8ye1fx8"]
 
 [ext_resource type="Script" path="res://Scenes/menu/menu.gd" id="1_4wa1y"]
 [ext_resource type="Texture2D" uid="uid://cec5ublsdd83o" path="res://assets/images/background.jpeg" id="2_h1kr2"]
 [ext_resource type="FontFile" uid="uid://c2m8o40oeuefn" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_3xm7v"]
 [ext_resource type="PackedScene" uid="uid://cffouhpparavx" path="res://Scenes/settings_menu/settings_menu.tscn" id="4_p4myp"]
+[ext_resource type="AudioStream" uid="uid://doh4vo7kl4sov" path="res://assets/sounds/Call of Duty_ Modern Warfare 2 - Opening Titles (Hans Zimmer) (64 kbps).mp3" id="5_hix6s"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -101,3 +102,6 @@ text = "Quit"
 [node name="settings_menu" parent="." instance=ExtResource("4_p4myp")]
 visible = false
 layout_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hix6s")

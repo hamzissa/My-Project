@@ -14,6 +14,7 @@ class_name MainMenu
 func _ready():
 	# Connect UI signals
 	handle_connection_of_signals()
+	$AudioStreamPlayer2D.play()
 
 # Function to handle play button press
 func on_play() -> void:
